@@ -7,7 +7,7 @@
 This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-swiftformat`, add it to your project by running:
 
 ```bash
-gem "fastlane-plugin-swiftformat", git: "https://github.com/fxm90/fastlane-plugin-swiftformat"
+gem 'fastlane-plugin-swiftformat'
 ```
 
 ## About fastlane-plugin-swiftformat
