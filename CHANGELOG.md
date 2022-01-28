@@ -17,6 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Initial release
 
 
-[Unreleased]: https://github.com/fxm90/fastlane-plugin-swiftformat/compare/0.2.0...master
-[0.2.0]: https://github.com/fxm90/fastlane-plugin-swiftformat/compare/0.1.0...0.2.0
+[Unreleased]: https://github.com/fxm90/fastlane-plugin-swiftformat/compare/v0.2.0...master
+[0.2.0]: https://github.com/fxm90/fastlane-plugin-swiftformat/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/fxm90/fastlane-plugin-swiftformat/releases/tag/v0.1.0
