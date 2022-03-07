@@ -1,6 +1,7 @@
 # fastlane-plugin-swiftformat
 
-[![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-swiftformat)
+[![Version shield](https://img.shields.io/gem/v/fastlane-plugin-swiftformat)](https://rubygems.org/gems/fastlane-plugin-swiftformat) [![Total downloads shield](https://img.shields.io/gem/dt/fastlane-plugin-swiftformat)](https://rubygems.org/gems/fastlane-plugin-swiftformat)
+
 
 ## Getting Started
 
