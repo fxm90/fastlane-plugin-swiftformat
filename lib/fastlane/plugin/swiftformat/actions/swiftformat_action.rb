@@ -136,7 +136,7 @@ module Fastlane
             enable: "isEmpty",                                          # Specify rules to enable (optional)
             swiftversion: "5.1"                                         # Specify swift version (optional)
             config: "path/to/configuration/.swiftformat"                # Path to configuration file (optional)
-            header: "{file}\nCopyright (c) 2022 Foobar Industries"      # Strip or replace the header comments in every file with the given template (optional)
+            header: \'{file}\nCopyright (c) 2022 Foobar Industries\'    # Strip or replace the header comments in every file with the given template (optional)
             dryrun: false,                                              # Run in dry mode (without actually changing any files) (optional)
             lint: true                                                  # Like `--dryrun`, but returns an error if formatting is needed (optional)
           )'
