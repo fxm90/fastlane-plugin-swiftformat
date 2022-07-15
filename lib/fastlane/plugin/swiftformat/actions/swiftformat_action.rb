@@ -28,6 +28,7 @@ module Fastlane
 
         command << " --swiftversion #{params[:swiftversion].shellescape}" if params[:swiftversion]
         command << " --config #{params[:config].shellescape}" if params[:config]
+        command << ' --header "' + params[:header] + '"' if params[:header]
 
         command << " --dryrun" if params[:dryrun]
         command << " --lint" if params[:lint]
@@ -93,6 +94,11 @@ module Fastlane
                                        verify_block: proc do |value|
                                          UI.user_error!("Couldn't find path '#{File.expand_path(value)}'") unless File.exist?(value) || Helper.test?
                                        end),
+          FastlaneCore::ConfigItem.new(key: :header,
+                                       env_name: "SWIFTFORMAT_HEADER",
+                                       description: "Strip or replace the header comments in every file with the given template",
+                                       is_string: true,
+                                       optional: true),
           FastlaneCore::ConfigItem.new(key: :dryrun,
                                        env_name: "SWIFTFORMAT_DRYRUN",
                                        description: "Run in dry mode (without actually changing any files)",
@@ -130,6 +136,7 @@ module Fastlane
             enable: "isEmpty",                                          # Specify rules to enable (optional)
             swiftversion: "5.1"                                         # Specify swift version (optional)
             config: "path/to/configuration/.swiftformat"                # Path to configuration file (optional)
+            header: "{file}\nCopyright (c) 2022 Foobar Industries"      # Strip or replace the header comments in every file with the given template (optional)
             dryrun: false,                                              # Run in dry mode (without actually changing any files) (optional)
             lint: true                                                  # Like `--dryrun`, but returns an error if formatting is needed (optional)
           )'

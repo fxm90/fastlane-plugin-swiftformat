@@ -105,6 +105,21 @@ describe Fastlane::Actions::SwiftformatAction do
       expect(result).to eq("swiftformat . --config #{config_path}")
     end
 
+    it 'Calls SwiftFormat with header template' do
+      # Given
+      header_template = "{file}\nCopyright (c) {year} Foobar Industries\nCreated by John Smith on {created}."
+
+      # When
+      result = Fastlane::FastFile.new.parse("lane :test do
+        swiftformat(
+          header: '#{header_template}'
+        )
+      end").runner.execute(:test)
+
+      # Then
+      expect(result).to eq('swiftformat . --header "' + header_template + '"')
+    end
+
     it 'Calls SwiftFormat with dryrun parameter' do
       # Given
       dryrun = "true"
@@ -144,6 +159,7 @@ describe Fastlane::Actions::SwiftformatAction do
       rules_to_enable = "isEmpty"
       swift_version = "123.456.789"
       config_path = "path/to/configuration/.swiftformat"
+      header_template = "{file}\nCopyright (c) {year} Foobar Industries\nCreated by John Smith on {created}."
       dryrun = "true"
       lint = "true"
 
@@ -157,13 +173,14 @@ describe Fastlane::Actions::SwiftformatAction do
           enable: '#{rules_to_enable}',
           swiftversion: '#{swift_version}',
           config: '#{config_path}',
+          header: '#{header_template}',
           dryrun: '#{dryrun}',
           lint: '#{lint}'
         )
       end").runner.execute(:test)
 
       # Then
-      expect(result).to eq("#{executable_path} #{formatting_path} --rules #{rules} --disable #{rules_to_disable} --enable #{rules_to_enable} --swiftversion #{swift_version} --config #{config_path} --dryrun --lint")
+      expect(result).to eq("#{executable_path} #{formatting_path} --rules #{rules} --disable #{rules_to_disable} --enable #{rules_to_enable} --swiftversion #{swift_version} --config #{config_path} --header \"#{header_template}\" --dryrun --lint")
     end
   end
 end
